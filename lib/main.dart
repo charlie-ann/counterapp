@@ -30,7 +30,7 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var counterNotifier = Provider.of<Counter>(context, listen: false);
+    var counterNotifier = Provider.of<Counter>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -63,7 +63,7 @@ class CounterPage extends StatelessWidget {
               //counterNotifier.increment();
             },
             style: ElevatedButton.styleFrom(
-              disabledBackgroundColor: counterNotifier.isIncrementDisabled
+              backgroundColor: counterNotifier.isIncrementDisabled
                   ? Colors.grey
                   : Colors.blue,
             ),
@@ -77,7 +77,7 @@ class CounterPage extends StatelessWidget {
               //counterNotifier.decrement();
             },
             style: ElevatedButton.styleFrom(
-              disabledBackgroundColor: counterNotifier.isDecrementDisabled
+              backgroundColor: counterNotifier.isDecrementDisabled
                   ? Colors.grey
                   : Colors.blue,
             ),

@@ -57,13 +57,19 @@ class CounterPage extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              counterNotifier.increment();
+              counterNotifier.isIncrementDisabled
+                  ? null
+                  : counterNotifier.increment();
+              //counterNotifier.increment();
             },
             child: const Icon(Icons.add),
           ),
           FloatingActionButton(
             onPressed: () {
-              counterNotifier.decrement();
+              counterNotifier.isDecrementDisabled
+                  ? null
+                  : counterNotifier.decrement();
+              //counterNotifier.decrement();
             },
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
